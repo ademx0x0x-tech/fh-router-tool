@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050b12">
+<meta name="description" content="FH Router Tool - أداة ذكية لفحص شبكات Wi-Fi وإدارة الاتصال بها.">
+
+<title>FH Router Tool | Official Download</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #050b12;
+    --panel: #0b1722;
+    --blue: #00aaff;
+    --cyan: #00f5d4;
+    --green: #00ff88;
+    --text: #eafaff;
+    --muted: #8da5b5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+#matrix {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .16;
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 50% 30%, #003c4c55, transparent 50%),
+      linear-gradient(180deg, transparent, #050b12);
+    z-index: -1;
+    pointer-events: none;
+}
+
+header {
+    width: 100%;
+    padding: 20px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #00d9ff22;
+    background: #050b12cc;
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo-icon {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--cyan);
+    border-radius: 13px;
+    color: var(--cyan);
+    font-size: 23px;
+    box-shadow: 0 0 20px #00f5d433;
+}
+
+.status {
+    color: var(--green);
+    font-size: 12px;
+    border: 1px solid #00ff8844;
+    padding: 6px 13px;
+    border-radius: 30px;
+}
+
+main {
+    width: min(1100px, 90%);
+    margin: auto;
+}
+
+.hero {
+    min-height: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 10px;
+}
+
+.tag {
+    color: var(--cyan);
+    border: 1px solid #00f5d444;
+    background: #00f5d40c;
+    border-radius: 30px;
+    padding: 7px 18px;
+    font-size: 12px;
+    margin-bottom: 28px;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 7vw, 76px);
+    font-weight: 800;
+    line-height: 1.3;
+    background: linear-gradient(90deg, #00aaff, #00f5d4, #00ff88);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 20px #00d9ff33);
+}
+
+.hero h2 {
+    font-size: 22px;
+    margin: 12px 0;
+    color: #d5f8ff;
+}
+
+.hero p {
+    max-width: 650px;
+    color: var(--muted);
+    line-height: 2;
+    margin: 15px auto 30px;
+    font-size: 15px;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 38px;
+    color: #001510;
+    background: linear-gradient(100deg, var(--cyan), var(--green));
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 800;
+    box-shadow: 0 0 30px #00ff8833;
+    transition: .3s;
+}
+
+.download-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px #00ff8877;
+}
+
+.file-info {
+    margin-top: 17px;
+    color: #7994a5;
+    font-size: 12px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 35px;
+}
+
+.section-title span {
+    color: var(--cyan);
+}
+
+.features {
+    padding: 50px 0 90px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: linear-gradient(145deg, #0c1d2a, #07111a);
+    border: 1px solid #00bfff22;
+    border-radius: 18px;
+    padding: 30px 22px;
+    transition: .3s;
+}
+
+.card:hover {
+    border-color: var(--cyan);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 35px #00d9ff12;
+}
+
+.card .icon {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: var(--cyan);
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 2;
+}
+
+.install {
+    padding: 60px 0 90px;
+}
+
+.steps {
+    max-width: 700px;
+    margin: auto;
+    display: grid;
+    gap: 15px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px;
+    background: #0b1722;
+    border: 1px solid #00bfff22;
+    border-radius: 13px;
+}
+
+.number {
+    min-width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    background: #00f5d41a;
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    border-radius: 10px;
+    font-weight: 800;
+}
+
+.step p {
+    color: #b3c9d6;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+footer {
+    border-top: 1px solid #00d9ff22;
+    padding: 30px 15px;
+    text-align: center;
+    color: #6f8999;
+    font-size: 12px;
+    line-height: 2;
+}
+
+footer span {
+    color: var(--cyan);
+}
+
+@media(max-width: 750px) {
+    header {
+        padding: 15px 5%;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 580px;
+    }
+
+    .hero h2 {
+        font-size: 18px;
+    }
+
+    .download-btn {
+        padding: 14px 25px;
+        font-size: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+
+<header>
+    <div class="logo">
+        <div class="logo-icon">⌁</div>
+        <span>FH ROUTER TOOL</span>
+    </div>
+    <div class="status">● SYSTEM ONLINE</div>
+</header>
+
+<main>
+
+<section class="hero">
+
+    <div class="tag">WIRELESS NETWORK TOOL</div>
+
+    <h1>FH ROUTER TOOL</h1>
+
+    <h2>تحكّم أذكى في شبكات Wi-Fi</h2>
+
+    <p>
+        اكتشف شبكات Wi-Fi القريبة، واعرض معلومات الاتصال
+        وقوة الإشارة، واستخدم أدوات إدارة الاتصال بالشبكات
+        المدعومة بطريقة سهلة ومباشرة.
+    </p>
+
+    <a class="download-btn"
+       href="https://github.com/ademx0x0x-tech/fh-router-tool/releases/latest/download/FH-Router-Tool-debug.apk"
+       download>
+       <span>⬇</span>
+       تحميل التطبيق APK
+    </a>
+
+    <div class="file-info">
+        ANDROID • APK • FH ROUTER TOOL
+    </div>
+
+</section>
+
+<section class="features">
+
+    <h2 class="section-title">
+        مميزات <span>التطبيق</span>
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">📡</div>
+            <h3>كشف الشبكات</h3>
+            <p>
+                عرض شبكات Wi-Fi القريبة التي يستطيع
+                الهاتف اكتشافها.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📶</div>
+            <h3>قوة الإشارة</h3>
+            <p>
+                الاطلاع على مستوى إشارة الشبكة
+                ومعلوماتها المتاحة.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔗</div>
+            <h3>إدارة الاتصال</h3>
+            <p>
+                استخدام واجهات Android المدعومة
+                لطلب الاتصال بالشبكات.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="install">
+
+    <h2 class="section-title">
+        طريقة <span>التثبيت</span>
+    </h2>
+
+    <div class="steps">
+
+        <div class="step">
+            <div class="number">01</div>
+            <p>اضغط على زر تحميل التطبيق وانتظر اكتمال التنزيل.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">02</div>
+            <p>افتح ملف APK من مجلد التنزيلات في هاتفك.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">03</div>
+            <p>إذا طلب Android السماح بالتثبيت من هذا المصدر، راجع الإعدادات واسمح به إذا كنت تثق بالملف.</p>
+        </div>
+
+        <div class="step">
+            <div class="number">04</div>
+            <p>اضغط تثبيت، ثم افتح FH Router Tool.</p>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>FH ROUTER TOOL © 2026</p>
+    <p>Wireless Network Utility | <span>Official Project</span></p>
+</footer>
+
+<script>
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+let width, height, columns, drops;
+const characters = "01アイウエオカキクケコABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+
+    columns = Math.floor(width / 17);
+    drops = Array(columns).fill(1);
+}
+
+function drawMatrix() {
+    ctx.fillStyle = "rgba(5, 11, 18, 0.09)";
+    ctx.fillRect(0, 0, width, height);
+
+    ctx.font = "14px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+        const char = characters[
+            Math.floor(Math.random() * characters.length)
+        ];
+
+        ctx.fillStyle = Math.random() > 0.5 ? "#00ff88" : "#00aaff";
+
+        ctx.fillText(char, i * 17, drops[i] * 17);
+
+        if (drops[i] * 17 > height && Math.random() > 0.975) {
+            drops[i] = 0;
+        }
+
+        drops[i]++;
+    }
+}
+
+resize();
+window.addEventListener("resize", resize);
+setInterval(drawMatrix, 55);
+</script>
+
+</body>
+</html>
