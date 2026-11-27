@@ -1,25 +1,29 @@
-
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#050b12">
-<meta name="description" content="FH Router Tool - أداة ذكية لفحص شبكات Wi-Fi وإدارة الاتصال بها.">
+<meta name="theme-color" content="#050912">
+<meta name="description" content="FH Router Tool - أداة ذكية لفحص شبكات Wi-Fi. مشروع DZ PENGUIN الجزائري.">
 
-<title>FH Router Tool | Official Download</title>
+<title>FH ROUTER TOOL | DZ PENGUIN</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
-
 :root {
-    --bg: #050b12;
-    --panel: #0b1722;
+    --bg: #050912;
+    --panel: #0b1421;
+    --panel2: #0e1c2b;
     --blue: #00aaff;
     --cyan: #00f5d4;
     --green: #00ff88;
     --text: #eafaff;
     --muted: #8da5b5;
+    --border: rgba(0, 220, 255, .16);
 }
 
 * {
@@ -45,8 +49,8 @@ body {
     inset: 0;
     width: 100%;
     height: 100%;
-    opacity: .16;
-    z-index: -1;
+    opacity: .17;
+    z-index: 0;
     pointer-events: none;
 }
 
@@ -54,102 +58,134 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background:
-      radial-gradient(circle at 50% 30%, #003c4c55, transparent 50%),
-      linear-gradient(180deg, transparent, #050b12);
-    z-index: -1;
+    z-index: 0;
     pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 25%, #003d5540, transparent 48%),
+        linear-gradient(180deg, transparent, #050912 95%);
+}
+
+header, main, footer {
+    position: relative;
+    z-index: 1;
 }
 
 header {
-    width: 100%;
-    padding: 20px 7%;
+    min-height: 78px;
+    padding: 14px 7%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #00d9ff22;
-    background: #050b12cc;
-    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    background: rgba(5, 9, 18, .82);
+    backdrop-filter: blur(16px);
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 21px;
-    font-weight: 800;
+    font-size: 19px;
+    font-weight: 900;
     letter-spacing: 1px;
 }
 
 .logo-icon {
-    width: 43px;
-    height: 43px;
+    width: 45px;
+    height: 45px;
     display: grid;
     place-items: center;
     border: 1px solid var(--cyan);
-    border-radius: 13px;
+    border-radius: 14px;
     color: var(--cyan);
-    font-size: 23px;
-    box-shadow: 0 0 20px #00f5d433;
+    font-size: 25px;
+    box-shadow: 0 0 22px #00f5d433;
 }
 
 .status {
     color: var(--green);
-    font-size: 12px;
+    font-size: 11px;
     border: 1px solid #00ff8844;
-    padding: 6px 13px;
+    background: #00ff880c;
+    padding: 7px 14px;
     border-radius: 30px;
+    direction: ltr;
 }
 
 main {
-    width: min(1100px, 90%);
+    width: min(1120px, 90%);
     margin: auto;
 }
 
 .hero {
-    min-height: 650px;
+    min-height: 690px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 80px 10px;
+    padding: 75px 10px;
+    position: relative;
+}
+
+.penguin {
+    font-size: 78px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 25px #00d9ff66);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
 }
 
 .tag {
     color: var(--cyan);
     border: 1px solid #00f5d444;
-    background: #00f5d40c;
+    background: #00f5d40d;
     border-radius: 30px;
-    padding: 7px 18px;
+    padding: 7px 19px;
     font-size: 12px;
-    margin-bottom: 28px;
+    margin-bottom: 23px;
     letter-spacing: 2px;
+    direction: ltr;
 }
 
 .hero h1 {
-    font-size: clamp(36px, 7vw, 76px);
-    font-weight: 800;
+    font-size: clamp(38px, 7vw, 78px);
+    font-weight: 900;
     line-height: 1.3;
+    direction: ltr;
     background: linear-gradient(90deg, #00aaff, #00f5d4, #00ff88);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    filter: drop-shadow(0 0 20px #00d9ff33);
+    filter: drop-shadow(0 0 20px #00d9ff35);
 }
 
 .hero h2 {
-    font-size: 22px;
-    margin: 12px 0;
+    font-size: clamp(18px, 3vw, 25px);
+    margin: 14px 0;
     color: #d5f8ff;
 }
 
 .hero p {
-    max-width: 650px;
+    max-width: 690px;
     color: var(--muted);
-    line-height: 2;
-    margin: 15px auto 30px;
+    line-height: 2.1;
+    margin: 12px auto 28px;
     font-size: 15px;
+}
+
+.creator {
+    margin-bottom: 28px;
+    color: #9bb7c8;
+    font-size: 13px;
+}
+
+.creator strong {
+    color: var(--cyan);
 }
 
 .download-btn {
@@ -157,40 +193,46 @@ main {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    padding: 16px 38px;
+    padding: 16px 40px;
     color: #001510;
     background: linear-gradient(100deg, var(--cyan), var(--green));
-    border-radius: 12px;
+    border-radius: 13px;
     text-decoration: none;
     font-size: 17px;
-    font-weight: 800;
+    font-weight: 900;
     box-shadow: 0 0 30px #00ff8833;
-    transition: .3s;
+    transition: .3s ease;
 }
 
 .download-btn:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 40px #00ff8877;
+    box-shadow: 0 0 45px #00ff8877;
+}
+
+.download-btn:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 5px;
 }
 
 .file-info {
-    margin-top: 17px;
+    margin-top: 16px;
     color: #7994a5;
-    font-size: 12px;
+    font-size: 11px;
+    direction: ltr;
+}
+
+.section {
+    padding: 65px 0 85px;
 }
 
 .section-title {
     text-align: center;
-    font-size: 30px;
-    margin-bottom: 35px;
+    font-size: clamp(24px, 4vw, 32px);
+    margin-bottom: 38px;
 }
 
 .section-title span {
     color: var(--cyan);
-}
-
-.features {
-    padding: 50px 0 90px;
 }
 
 .cards {
@@ -200,22 +242,22 @@ main {
 }
 
 .card {
-    background: linear-gradient(145deg, #0c1d2a, #07111a);
-    border: 1px solid #00bfff22;
-    border-radius: 18px;
-    padding: 30px 22px;
+    background: linear-gradient(145deg, #102033, #07111c);
+    border: 1px solid var(--border);
+    border-radius: 19px;
+    padding: 30px 23px;
     transition: .3s;
 }
 
 .card:hover {
     border-color: var(--cyan);
-    transform: translateY(-6px);
-    box-shadow: 0 10px 35px #00d9ff12;
+    transform: translateY(-7px);
+    box-shadow: 0 12px 35px #00d9ff15;
 }
 
 .card .icon {
-    font-size: 32px;
-    margin-bottom: 15px;
+    font-size: 34px;
+    margin-bottom: 16px;
 }
 
 .card h3 {
@@ -230,12 +272,36 @@ main {
     line-height: 2;
 }
 
-.install {
-    padding: 60px 0 90px;
+.creator-panel {
+    margin: 30px auto 0;
+    max-width: 780px;
+    padding: 30px;
+    border: 1px solid #00f5d433;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #0b1b29, #07111b);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.creator-panel .mascot {
+    font-size: 65px;
+    flex-shrink: 0;
+}
+
+.creator-panel h3 {
+    color: var(--cyan);
+    margin-bottom: 8px;
+}
+
+.creator-panel p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 2;
 }
 
 .steps {
-    max-width: 700px;
+    max-width: 750px;
     margin: auto;
     display: grid;
     gap: 15px;
@@ -246,45 +312,77 @@ main {
     align-items: center;
     gap: 18px;
     padding: 20px;
-    background: #0b1722;
-    border: 1px solid #00bfff22;
-    border-radius: 13px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
 }
 
 .number {
-    min-width: 38px;
-    height: 38px;
+    min-width: 40px;
+    height: 40px;
     display: grid;
     place-items: center;
     background: #00f5d41a;
     border: 1px solid var(--cyan);
     color: var(--cyan);
-    border-radius: 10px;
-    font-weight: 800;
+    border-radius: 11px;
+    font-weight: 900;
 }
 
 .step p {
     color: #b3c9d6;
     font-size: 14px;
-    line-height: 1.8;
+    line-height: 1.9;
+}
+
+.warning {
+    max-width: 750px;
+    margin: 25px auto 0;
+    padding: 16px 20px;
+    background: #ffb0000c;
+    border: 1px solid #ffb00044;
+    border-radius: 12px;
+    color: #d9c49b;
+    font-size: 12px;
+    line-height: 2;
 }
 
 footer {
-    border-top: 1px solid #00d9ff22;
-    padding: 30px 15px;
+    border-top: 1px solid var(--border);
+    padding: 32px 15px;
     text-align: center;
     color: #6f8999;
     font-size: 12px;
-    line-height: 2;
+    line-height: 2.2;
+    background: #050912bb;
 }
 
 footer span {
     color: var(--cyan);
 }
 
-@media(max-width: 750px) {
+.footer-penguin {
+    font-size: 27px;
+    margin-bottom: 7px;
+}
+
+@media (max-width: 750px) {
     header {
-        padding: 15px 5%;
+        padding: 13px 5%;
+    }
+
+    .logo {
+        font-size: 15px;
+    }
+
+    .logo-icon {
+        width: 39px;
+        height: 39px;
+    }
+
+    .status {
+        font-size: 9px;
+        padding: 6px 9px;
     }
 
     .cards {
@@ -292,16 +390,33 @@ footer span {
     }
 
     .hero {
-        min-height: 580px;
+        min-height: 620px;
     }
 
-    .hero h2 {
-        font-size: 18px;
+    .hero p {
+        font-size: 13px;
     }
 
     .download-btn {
         padding: 14px 25px;
         font-size: 15px;
+    }
+
+    .creator-panel {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .step {
+        align-items: flex-start;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
     }
 }
 </style>
@@ -309,11 +424,11 @@ footer span {
 
 <body>
 
-<canvas id="matrix"></canvas>
+<canvas id="matrix" aria-hidden="true"></canvas>
 
 <header>
     <div class="logo">
-        <div class="logo-icon">⌁</div>
+        <div class="logo-icon">🐧</div>
         <span>FH ROUTER TOOL</span>
     </div>
     <div class="status">● SYSTEM ONLINE</div>
@@ -323,32 +438,38 @@ footer span {
 
 <section class="hero">
 
-    <div class="tag">WIRELESS NETWORK TOOL</div>
+    <div class="penguin">🐧</div>
+
+    <div class="tag">DZ PENGUIN • ALGERIA</div>
 
     <h1>FH ROUTER TOOL</h1>
 
-    <h2>تحكّم أذكى في شبكات Wi-Fi</h2>
+    <h2>اكتشف شبكات Wi-Fi بذكاء</h2>
 
     <p>
-        اكتشف شبكات Wi-Fi القريبة، واعرض معلومات الاتصال
-        وقوة الإشارة، واستخدم أدوات إدارة الاتصال بالشبكات
-        المدعومة بطريقة سهلة ومباشرة.
+        أداة ذكية لفحص شبكات Wi-Fi القريبة،
+        وعرض معلومات الشبكات وقوة الإشارة،
+        مع واجهة بسيطة وعصرية لإدارة الاتصال
+        باستخدام إمكانيات Android المدعومة.
     </p>
 
+    <div class="creator">
+        DEVELOPED WITH <strong>🇩🇿 DZ PENGUIN</strong>
+    </div>
+
     <a class="download-btn"
-       href="https://github.com/ademx0x0x-tech/fh-router-tool/releases/latest/download/FH-Router-Tool-debug.apk"
-       download>
+       href="https://github.com/ademx0x0x-tech/fh-router-tool/releases/download/v1.0.0/FH-Router-Tool-debug.apk">
        <span>⬇</span>
        تحميل التطبيق APK
     </a>
 
     <div class="file-info">
-        ANDROID • APK • FH ROUTER TOOL
+        ANDROID • APK • VERSION 1.0.0
     </div>
 
 </section>
 
-<section class="features">
+<section class="section">
 
     <h2 class="section-title">
         مميزات <span>التطبيق</span>
@@ -370,7 +491,7 @@ footer span {
             <h3>قوة الإشارة</h3>
             <p>
                 الاطلاع على مستوى إشارة الشبكة
-                ومعلوماتها المتاحة.
+                والمعلومات المتاحة عنها.
             </p>
         </div>
 
@@ -384,9 +505,32 @@ footer span {
         </div>
 
     </div>
+
 </section>
 
-<section class="install">
+<section class="section">
+
+    <h2 class="section-title">
+        هوية <span>المطور</span>
+    </h2>
+
+    <div class="creator-panel">
+        <div class="mascot">🐧</div>
+        <div>
+            <h3>DZ PENGUIN | 🇩🇿</h3>
+            <p>
+                خلف هذا المشروع مبرمج جزائري شغوف
+                بالتقنية والبرمجة وعالم الشبكات.
+                البطريق هو الهوية الرمزية للمشروع،
+                والهدف هو بناء أدوات تقنية مفيدة
+                بتصميم أنيق وتجربة استخدام بسيطة.
+            </p>
+        </div>
+    </div>
+
+</section>
+
+<section class="section">
 
     <h2 class="section-title">
         طريقة <span>التثبيت</span>
@@ -406,7 +550,7 @@ footer span {
 
         <div class="step">
             <div class="number">03</div>
-            <p>إذا طلب Android السماح بالتثبيت من هذا المصدر، راجع الإعدادات واسمح به إذا كنت تثق بالملف.</p>
+            <p>راجع طلب Android للسماح بالتثبيت من هذا المصدر، واسمح به إذا كنت تثق بالملف.</p>
         </div>
 
         <div class="step">
@@ -415,13 +559,22 @@ footer span {
         </div>
 
     </div>
+
+    <div class="warning">
+        ⚠️ ملاحظة: هذا الإصدار تجريبي (Debug).
+        استخدم التطبيق على الشبكات التي تملكها
+        أو لديك إذن باستخدامها.
+    </div>
+
 </section>
 
 </main>
 
 <footer>
+    <div class="footer-penguin">🐧</div>
     <p>FH ROUTER TOOL © 2026</p>
-    <p>Wireless Network Utility | <span>Official Project</span></p>
+    <p>MADE IN ALGERIA 🇩🇿 | <span>DZ PENGUIN</span></p>
+    <p>Wireless Network Utility</p>
 </footer>
 
 <script>
@@ -429,32 +582,45 @@ const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
 let width, height, columns, drops;
-const characters = "01アイウエオカキクケコABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+const characters =
+    "01アイウエオカキクケコABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
 
-    columns = Math.floor(width / 17);
+    width = window.innerWidth;
+    height = window.innerHeight;
+
+    canvas.width = width * ratio;
+    canvas.height = height * ratio;
+
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+    columns = Math.ceil(width / 18);
     drops = Array(columns).fill(1);
 }
 
 function drawMatrix() {
-    ctx.fillStyle = "rgba(5, 11, 18, 0.09)";
+    ctx.fillStyle = "rgba(5, 9, 18, 0.10)";
     ctx.fillRect(0, 0, width, height);
 
-    ctx.font = "14px monospace";
+    ctx.font = "13px monospace";
 
     for (let i = 0; i < drops.length; i++) {
         const char = characters[
             Math.floor(Math.random() * characters.length)
         ];
 
-        ctx.fillStyle = Math.random() > 0.5 ? "#00ff88" : "#00aaff";
+        ctx.fillStyle =
+            Math.random() > 0.5 ? "#00ff88" : "#00aaff";
 
-        ctx.fillText(char, i * 17, drops[i] * 17);
+        ctx.fillText(char, i * 18, drops[i] * 18);
 
-        if (drops[i] * 17 > height && Math.random() > 0.975) {
+        if (drops[i] * 18 > height && Math.random() > 0.975) {
             drops[i] = 0;
         }
 
@@ -463,9 +629,13 @@ function drawMatrix() {
 }
 
 resize();
-window.addEventListener("resize", resize);
-setInterval(drawMatrix, 55);
+window.addEventListener("resize", resize, { passive: true });
+
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    setInterval(drawMatrix, 65);
+}
 </script>
 
 </body>
 </html>
+```
